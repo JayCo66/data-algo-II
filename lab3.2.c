@@ -11,12 +11,10 @@ void printArr(int A[],int s){
     printf("\n");
 }
 
-void quickSort(int array[], int low, int high) {
-  if (low < high) {
-    int p = partition(array, low, high);
-    quickSort(array, low, p-1);
-    quickSort(array, p+1, high);
-  }
+void swap(int *A, int *B){
+    int temp = *A;
+    *A = *B;
+    *B = temp;
 }
 
 int partition(int array[], int low, int high) {
@@ -34,10 +32,12 @@ int partition(int array[], int low, int high) {
   return (i + 1);
 }
 
-void swap(int *A, int *B){
-    int temp = *A;
-    *A = *B;
-    *B = temp;
+void quickSort(int array[], int low, int high) {
+  if (low < high) {
+    int p = partition(array, low, high);
+    quickSort(array, low, p-1);
+    quickSort(array, p+1, high);
+  }
 }
 
 int BinarySearch(int n, int min, int max){
